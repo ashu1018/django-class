@@ -1,0 +1,39 @@
+{% extends 'job/base.html' %}
+
+
+
+{% block content %}
+<div class="jumbotron bg-info text-center">
+    <h3>Job Portal</h3>
+</div>
+<div class="container">
+    {% for vacancy in vacancies %}
+    <div class="card">
+        <div class="card-header bg-info">
+            <div class="row">
+                <div class="col-9">
+                    <h3 class="card-title">
+                        {{vacancy.title}}
+                    </h3>
+                </div>
+                <div class="col-3">
+                    <div class="row">
+                        {{vacancy.posted_at}} by {{vacancy.posted_by}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="{{vacancy.image.url}}"alt="Web desiging" style="width:500px; margin: 100px;">
+        <div class="card-body">
+            <p class="card-text">
+                {{vacancy.description}}
+            </p>
+            
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+
+{% endblock content %}
